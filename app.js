@@ -29,10 +29,10 @@ function onReady() {
 
     //empty the input
     newToDoText.value = '';
+
   });
  }
 
 window.onload = function() {
-  alert("The window has loaded!");
   onReady();
 };
