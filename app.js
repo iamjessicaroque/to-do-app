@@ -27,12 +27,27 @@ function onReady() {
     // attach the li to the ul
     toDoList.appendChild(newLi);
 
-    //empty the input
+    // empty the input
     newToDoText.value = '';
+
+    // add remove button
+    let btnDelete = document.createElement('button');
+
+    //set the delete button text
+    btnDelete.textContent = "Delete";
+
+    // attach the button to the li
+    newLi.appendChild(btnDelete);
+
+    // tell the button to listen for a click.
+    // tell the event handler to delete the whole li upon click
+    btnDelete.addEventListener ("click", function () {
+      toDoList.removeChild(newLi)
+    });
+
   });
  }
 
 window.onload = function() {
-  alert("The window has loaded!");
   onReady();
 };
