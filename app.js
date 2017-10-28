@@ -18,35 +18,50 @@ function onReady() {
   }
 
   function renderTheUI(toDos) {
-    const todoList = document.getElementById('toDoList');
+    const toDoList = document.getElementById('toDoList');
 
     toDoList.textContent = '';
 
     toDos.forEach(function(toDo) {
       const newLi = document.createElement('li');
       const checkbox = document.createElement('input');
+      const btnDelete = document.createElement('button');
       checkbox.type = "checkbox";
 
       newLi.textContent = toDo.title;
 
-      todoList.appendChild(newLi);
-      newLi.appendChild(checkbox);
+      btnDelete.textContent = "Delete";
 
+
+      toDoList.appendChild(newLi);
+      newLi.appendChild(checkbox);
+      newLi.appendChild(btnDelete);
+
+
+
+        btnDelete.addEventListener
+        ("click", function ()
+          {
+            toDos.pop();
+            toDoList.removeChild(newLi);
+          }
+        )
 
     });
 }
 
-//Why do we now need the word "event" after submit?
-//Didn't need this on the last assignment
-  addToDoForm.addEventListener('submit', event => {
-    event.preventDefault();
+
+
+
+addToDoForm.addEventListener('submit', event => {
+  event.preventDefault();
     createNewToDo();
 });
 
+
 renderTheUI(toDos);
 
-
- }
+}
 
 window.onload = function() {
   onReady();
